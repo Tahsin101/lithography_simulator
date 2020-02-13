@@ -1,0 +1,7 @@
+*.mat
+Benchmarks/
+Debug/
+Kernels/
+results/
+*.txt
+*.i
