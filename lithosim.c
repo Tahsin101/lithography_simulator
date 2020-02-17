@@ -130,7 +130,7 @@ void myDevLayerDraw(unsigned char *imgpbo, int nx, int ny, int ox, int oy, int s
   int i;
   int x;
   int y;
-  	
+  	//lvlcnt is number of rectange and in devdata the rectangles are stored
 	printf("lvlcnt = %d\n",lvlcnt);
   for( i = 0; i<lvlcnt; i++) {
     rect r = devdata[i];
