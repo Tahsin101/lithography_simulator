@@ -45,8 +45,8 @@ int erfill(char *l,int x, int y, int w, int h) {
   int i = agsIntern(l);
   int j = lvlcnt[i];
   rect *r = lvldata[i]+j;
-  r->x = x + ef_xoff;
-  r->y = y + ef_yoff;
+  r->x = x + ef_xoff; // offset set to 0
+  r->y = y + ef_yoff; // offset set to 0
   r->w = w;
   r->h = h;
   llx = min(r->x,llx);

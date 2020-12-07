@@ -6,7 +6,7 @@ use POSIX; # to use ceil and floor
 #write lines 1 2 3 4 5 6
 #loop for 2048 and 2048 with step size 10,increase by 10
 #write RECT 
-my $step = 1024;
+my $step = 128;
 my $layout_x=2048;
 my $layout_y=2048;
 my $origin=0;
@@ -36,6 +36,7 @@ print "segment in x is ".$loop_x;
 print "\n";
 print "segment in y is ".$loop_y;
 print "\n";
+# for all nxn rectangle file
 for( my $i = 1; $i < $loop_x+1; $i = $i + 1 ) {
     my $lrx= $origin+$i*$step; #lower right x of rectangle
     if($lrx>$layout_x){
@@ -48,10 +49,25 @@ for( my $i = 1; $i < $loop_x+1; $i = $i + 1 ) {
         }
         my $llx=$origin;
         my $lly=$lry;
-        print $fh "RECT N M1OPC  $llx $lly $lrx $lry\n";
+        print $fh "RECT N M1OPC  0 0 $lrx $lry\n";
         $count++;
     }
 }
+## for only one sided rectangle file.
+#    my $lrx= $origin+$step; #lower right x of rectangle
+#    if($lrx>$layout_x){
+#        $lrx=$layout_x;
+#    }
+#    for( my $j = 1; $j < $loop_y+1; $j = $j + 1 ) {
+#        my $lry= $origin+$j*$step; #lower right y of rectangle
+#        if($lry>$layout_y){
+#            $lry=$layout_y;
+#        }
+#        my $llx=$origin;
+#        my $lly=$lry;
+#        print $fh "RECT N M1OPC  0 $lry $step $step\n";
+#        $count++;
+#    }
 print $fh "ENDMSG";
 close($fh);
 
